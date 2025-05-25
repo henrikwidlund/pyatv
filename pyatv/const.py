@@ -456,6 +456,9 @@ class FeatureName(Enum):
     ControlCenter = 68
     """Open the Control Center."""
 
+    Numpad = 69
+    """Send a numpad value."""
+
 
 class TouchAction(Enum):
     """Touch action constants."""

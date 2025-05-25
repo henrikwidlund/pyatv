@@ -54,7 +54,16 @@ class HidCommand(Enum):
     Guide = 17
     PageUp = 18
     PageDown = 19
-
+    Numpad0 = 0x60,
+    Numpad1 = 0x61,
+    Numpad2 = 0x62
+    Numpad3 = 0x63,
+    Numpad4 = 0x64,
+    Numpad5 = 0x65,
+    Numpad6 = 0x66,
+    Numpad7 = 0x67,
+    Numpad8 = 0x68,
+    Numpad9 = 0x69,
 
 class MediaControlCommand(Enum):
     """Media Control command constants."""

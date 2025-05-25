@@ -141,6 +141,7 @@ SUPPORTED_FEATURES = set(
         FeatureName.Screensaver,
         FeatureName.Guide,
         FeatureName.ControlCenter,
+        FeatureName.Numpad,
         # Keyboard interface
         FeatureName.TextFocusState,
         FeatureName.TextGet,
@@ -389,6 +390,24 @@ class CompanionRemoteControl(RemoteControl):
     async def control_center(self) -> None:
         """Open the control center."""
         await self._press_button(HidCommand.PageDown)
+
+    async def numpad(self, numpad_key: int) -> None:
+        """Send a numpad value."""
+        if numpad_key < 0 or numpad_key > 9:
+            raise exceptions.NotSupportedError
+        switch = {
+            0: HidCommand.Numpad0,
+            1: HidCommand.Numpad1,
+            2: HidCommand.Numpad2,
+            3: HidCommand.Numpad3,
+            4: HidCommand.Numpad4,
+            5: HidCommand.Numpad5,
+            6: HidCommand.Numpad6,
+            7: HidCommand.Numpad7,
+            8: HidCommand.Numpad8,
+            9: HidCommand.Numpad9,
+        }
+        return await self._press_button(switch.get(numpad_key))
 
     async def _press_button(
         self,

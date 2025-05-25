@@ -464,6 +464,11 @@ class RemoteControl:
         """Open the control center."""
         raise exceptions.NotSupportedError()
 
+    @feature(69, "Numpad", "Numpad.")
+    async def numpad(self, numpad_key: int) -> None:
+        """Send a numpad value."""
+        raise exceptions.NotSupportedError()
+
 
 # TODO: Should be made into a dataclass when support for 3.6 is dropped
 class Playing(ABC):

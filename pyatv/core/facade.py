@@ -203,6 +203,11 @@ class FacadeRemoteControl(Relayer, interface.RemoteControl):
         """Open the control center."""
         return await self.relay("control_center")()
 
+    @shield.guard
+    async def numpad(self, numpad_key: int) -> None:
+        """Send a numpad value."""
+        return await self.relay("numpad")()
+
 
 class FacadeMetadata(Relayer, interface.Metadata):
     """Facade implementation for retrieving metadata from an Apple TV."""
